@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { MessageCircle, X, ChevronDown, Send, Sparkles, Bot, Zap, Brain } from 'lucide-react';
+import { X, Send, Sparkles, Brain } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { soundManager } from '../utils/sounds';
 
@@ -68,7 +68,6 @@ type Message = {
 
 export const AuraAgent = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [expandedQuestion, setExpandedQuestion] = useState<string | null>(null);
     const [inputValue, setInputValue] = useState('');
     const [messages, setMessages] = useState<Message[]>([
         { text: "Hi! I'm Aura. Ask me anything about Daksh's work, skills, or availability.", isUser: false, timestamp: new Date() }
@@ -91,12 +90,6 @@ export const AuraAgent = () => {
 
     const handleClose = () => {
         setIsOpen(false);
-        setExpandedQuestion(null);
-    };
-
-    const handleQuestionClick = (id: string) => {
-        setExpandedQuestion(expandedQuestion === id ? null : id);
-        soundManager.play('click');
     };
 
     const processMessage = async (text: string) => {
@@ -212,8 +205,8 @@ export const AuraAgent = () => {
                                 >
                                     <div
                                         className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed ${msg.isUser
-                                                ? 'bg-electric-indigo text-white rounded-tr-none'
-                                                : 'bg-white/10 text-gray-200 rounded-tl-none border border-white/5'
+                                            ? 'bg-electric-indigo text-white rounded-tr-none'
+                                            : 'bg-white/10 text-gray-200 rounded-tl-none border border-white/5'
                                             }`}
                                     >
                                         {msg.text}
