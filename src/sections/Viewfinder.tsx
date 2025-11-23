@@ -102,26 +102,26 @@ export const Viewfinder = () => {
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500 grayscale group-hover:grayscale-0"
+                                    className="w-full h-full object-cover opacity-40 md:opacity-60 md:group-hover:opacity-40 transition-opacity duration-500 grayscale-0 md:grayscale md:group-hover:grayscale-0"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-galactic-grey via-galactic-grey/50 to-transparent" />
                             </div>
 
                             {/* Content Overlay */}
                             <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                                <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                <div className="transform translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-500">
                                     <span className="text-electric-indigo font-mono text-xs tracking-widest mb-2 block">
                                         {project.category}
                                     </span>
                                     <h3 className="text-3xl md:text-4xl font-bold text-clean-lumen mb-4">
                                         {project.title}
                                     </h3>
-                                    <p className="text-gray-400 mb-6 max-w-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                    <p className="text-gray-400 mb-6 max-w-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 delay-100">
                                         {project.description}
                                     </p>
 
                                     {/* Tech Stack */}
-                                    <div className="flex flex-wrap gap-2 mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
+                                    <div className="flex flex-wrap gap-2 mb-6 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 delay-200">
                                         {project.tech.map((t, i) => (
                                             <span key={i} className="px-2 py-1 border border-white/20 text-xs text-gray-300 rounded-full">
                                                 {t}
@@ -130,7 +130,7 @@ export const Viewfinder = () => {
                                     </div>
 
                                     {/* Metrics (Reveal on Hover) */}
-                                    <div className="flex gap-8 border-t border-white/10 pt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-300">
+                                    <div className="flex gap-8 border-t border-white/10 pt-6 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 delay-300">
                                         {project.metrics.map((metric, i) => (
                                             <div key={i}>
                                                 <div className="text-2xl font-bold text-ionized-gold">{metric.value}</div>
@@ -141,13 +141,13 @@ export const Viewfinder = () => {
                                 </div>
 
                                 {/* Action Buttons */}
-                                <div className="absolute top-8 right-8 flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <div className="absolute top-8 right-8 flex gap-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
                                     {project.github && (
                                         <a
                                             href={project.github}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="p-3 rounded-full border border-white/20 hover:bg-white/10 hover:border-ionized-gold transition-colors"
+                                            className="p-3 rounded-full border border-white/20 hover:bg-white/10 hover:border-ionized-gold transition-colors bg-black/50 md:bg-transparent"
                                         >
                                             <Github className="w-5 h-5 text-clean-lumen" />
                                         </a>
@@ -157,7 +157,7 @@ export const Viewfinder = () => {
                                             href={project.live}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="p-3 rounded-full border border-white/20 hover:bg-white/10 hover:border-ionized-gold transition-colors"
+                                            className="p-3 rounded-full border border-white/20 hover:bg-white/10 hover:border-ionized-gold transition-colors bg-black/50 md:bg-transparent"
                                         >
                                             <ExternalLink className="w-5 h-5 text-clean-lumen" />
                                         </a>
